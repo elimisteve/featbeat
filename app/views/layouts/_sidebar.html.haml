@@ -1,0 +1,17 @@
+- if @rollups
+  %h3 last 30 days
+  .rollups
+    - @rollups.each do |r|
+      .rollup
+        .count
+          = r[:count]
+        .unit
+          = r[:unit]
+
+        - if r[:noun].present?
+          .noun
+            of 
+            = r[:noun]
+        .verb
+          = r[:verb]
+      

@@ -1,0 +1,59 @@
+.content {
+  margin-top: 20px;
+}
+
+.entry {
+  line-height: 4em;
+  
+  .verb {
+    display: inline-block;
+    font-size: 2em;
+    color: #333;
+  }
+    
+  .count {
+    display: inline-block;
+    font-size: 4em;
+    color: #333;
+  }
+    
+  .unit {
+    display: inline-block;
+    font-size: 2em;
+    color: #333;    
+  }
+    
+  .noun {
+    display: inline-block;
+    font-size: 2em;
+  }
+    
+  .created_at {
+    display: inline-block;
+  }
+}
+    
+.rollup {
+  
+  .verb {
+    display: inline-block;
+  }
+    
+  .count {
+    display: inline-block;
+    color: #333;
+    font-size: 2em;
+  }
+    
+  .unit {
+    display: inline-block;
+  }
+    
+  .noun {
+    display: inline-block;
+  }
+    
+}
+    
+    
+  

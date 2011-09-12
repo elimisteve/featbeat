@@ -1,0 +1,55 @@
+/* line 1, ../../../app/stylesheets/main.scss */
+.content {
+  margin-top: 20px;
+}
+
+/* line 5, ../../../app/stylesheets/main.scss */
+.entry {
+  line-height: 4em;
+}
+/* line 8, ../../../app/stylesheets/main.scss */
+.entry .verb {
+  display: inline-block;
+  font-size: 2em;
+  color: #333;
+}
+/* line 14, ../../../app/stylesheets/main.scss */
+.entry .count {
+  display: inline-block;
+  font-size: 4em;
+  color: #333;
+}
+/* line 20, ../../../app/stylesheets/main.scss */
+.entry .unit {
+  display: inline-block;
+  font-size: 2em;
+  color: #333;
+}
+/* line 26, ../../../app/stylesheets/main.scss */
+.entry .noun {
+  display: inline-block;
+  font-size: 2em;
+}
+/* line 31, ../../../app/stylesheets/main.scss */
+.entry .created_at {
+  display: inline-block;
+}
+
+/* line 38, ../../../app/stylesheets/main.scss */
+.rollup .verb {
+  display: inline-block;
+}
+/* line 42, ../../../app/stylesheets/main.scss */
+.rollup .count {
+  display: inline-block;
+  color: #333;
+  font-size: 2em;
+}
+/* line 48, ../../../app/stylesheets/main.scss */
+.rollup .unit {
+  display: inline-block;
+}
+/* line 52, ../../../app/stylesheets/main.scss */
+.rollup .noun {
+  display: inline-block;
+}

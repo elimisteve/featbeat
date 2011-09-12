@@ -2,6 +2,16 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
 
+# Adam added
+gem 'haml', ">= 3.0"
+gem 'configatron'
+gem 'compass', ">= 0.10.4"
+
+group :development do
+  gem "barista" # coffeescript
+end
+
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
