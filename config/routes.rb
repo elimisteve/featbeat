@@ -1,6 +1,9 @@
 Featbeat::Application.routes.draw do
 
   resources :entries
+  
+  match 'api/inbound_email', :to => 'api/inbound_email#create'
+  
   root :to => "home#index"
 
   # The priority is based upon order of creation:
