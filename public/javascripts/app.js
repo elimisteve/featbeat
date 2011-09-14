@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Mon, 12 Sep 2011 04:04:56 GMT from
+/* DO NOT MODIFY. This file was compiled Wed, 14 Sep 2011 05:35:14 GMT from
  * /Users/adam/Projects/featbeat/app/coffeescripts/app.coffee
  */
 
@@ -7,6 +7,7 @@
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
   EntryController = (function() {
     function EntryController() {
+      this.onCreateSuccess = __bind(this.onCreateSuccess, this);
       this.onCreate = __bind(this.onCreate, this);      $('#save').click(this.onCreate);
     }
     EntryController.prototype.onCreate = function(event) {
@@ -19,14 +20,21 @@
           noun: $('#noun').val(),
           verb: $('#verb').val()
         },
-        error: function(jqXHR, textStatus, errorThrown) {
-          return $('body').append("Error: " + textStatus);
-        },
-        success: function(data, textStatus, jqXHR) {
-          return $('body').append('success');
-        }
+        error: __bind(function(jqXHR, textStatus, errorThrown) {
+          return $('.alert-message.error').text('Error: #{textStatus}');
+        }, this),
+        success: __bind(function(data, textStatus, jqXHR) {
+          return this.onCreateSuccess(data);
+        }, this)
       });
       return false;
+    };
+    EntryController.prototype.onCreateSuccess = function(data) {
+      $('.alert-message.success').text('Saved!').show();
+      $('#count').val('1');
+      $('#unit').val('');
+      $('#noun').val('');
+      return $('#verb').val('');
     };
     return EntryController;
   })();

@@ -15,12 +15,19 @@ class EntryController
           noun: $('#noun').val(),
           verb: $('#verb').val()
         }
-        error: (jqXHR, textStatus, errorThrown) ->
-            $('body').append "Error: #{textStatus}"
-        success: (data, textStatus, jqXHR) ->
-            $('body').append 'success';
+        error: (jqXHR, textStatus, errorThrown) =>
+            $('.alert-message.error').text('Error: #{textStatus}')            
+        success: (data, textStatus, jqXHR) =>
+            this.onCreateSuccess(data)
     
-    return false
+    return false # don't submit form
+    
+  onCreateSuccess: (data) =>
+    $('.alert-message.success').text('Saved!').show();
+    $('#count').val('1')
+    $('#unit').val('')
+    $('#noun').val('')
+    $('#verb').val('')
     
 jQuery ->
   window.app = { 'controllers' : {}, 'models': {} }
