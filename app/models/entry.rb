@@ -3,7 +3,14 @@ class Entry < ActiveRecord::Base
   def Entry.create_from_sentence(s)
     a = s.split(' ')
     
-    if a.size == 4
+    if a.last == 'visited'
+      return Entry.create(
+        :count  => a[0],
+        :unit   => a[1],
+        :noun   => a[2..a.size-2].join(' '),
+        :verb   => a.last
+      )      
+    elsif a.size == 4
       return Entry.create(
         :count  => a[0],
         :unit   => a[1],
@@ -12,6 +19,7 @@ class Entry < ActiveRecord::Base
       )
     else 
       Rails.logger.warn "unrecognized sentence #{s}"
+      return nil
     end
   end
 end
