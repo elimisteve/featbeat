@@ -1,8 +1,35 @@
 class Entry < ActiveRecord::Base
   
+  def Entry.parse_number(s)
+
+    if s == 'one' 
+      return 1
+    elsif s == 'two' 
+      return 2
+    elsif s == 'three' 
+      return 3
+    elsif s == 'four' 
+      return 4
+    elsif s == 'five' 
+      return 5
+    elsif s == 'six' 
+      return 6
+    elsif s == 'seven' 
+      return 7
+    elsif s == 'eight' 
+      return 8
+    elsif s == 'nine' 
+      return 9
+    elsif s == 'ten' 
+      return 10
+    end
+    
+    return s.to_i
+
+  end
+
   def Entry.create_from_sentence(s)
     a = s.split(' ')
-
     
     # I took 1 bus
     # I ran 5 kilometers
@@ -16,7 +43,7 @@ class Entry < ActiveRecord::Base
       end
 
       return Entry.create(
-        :count  => a[2],
+        :count  => Entry.parse_number(a[2]),
         :unit   => a[3],
         :noun   => noun,
         :verb   => a[1]
