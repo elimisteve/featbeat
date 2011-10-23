@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Sat, 17 Sep 2011 07:44:00 GMT from
+/* DO NOT MODIFY. This file was compiled Wed, 21 Sep 2011 05:55:32 GMT from
  * /Users/adam/Projects/featbeat/app/coffeescripts/app.coffee
  */
 
