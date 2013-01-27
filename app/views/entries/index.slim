@@ -1,0 +1,30 @@
+a href='/'
+  Home
+  
+h1 Add Entry
+
+.alert-message.success style="display:none"
+.alert-message.error style="display:none"
+
+form
+  fieldset
+    .clearfix
+      label for='count' Count (number required)
+      .input
+        input id='count' type='text' name='count' value=1 style='width:100px'
+    .clearfix
+      label for='unit' Singular unit (rep k mile gram)
+      .input
+        input id='unit' type='text' name='unit' style='width:100px'
+    .clearfix        
+      label for='noun' Noun (pushups protein)
+      .input
+        input id='noun' type='text' name='noun' style='width:100px'
+    .clearfix        
+      label for='verb' Past tense verb (completed ran ate)
+      .input
+        input id='verb' type='text' name='verb' style='width:100px'
+    .clearfix
+      .actions
+        input.btn.primary id='save' type='submit' value='Save'
+        

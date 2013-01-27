@@ -29,7 +29,7 @@ class EntryController
     $('#noun').val('')
     $('#verb').val('')
     
-jQuery ->
-  window.app = { 'controllers' : {}, 'models': {} }
-  window.app.controllers.EntryController = new EntryController();
+
+window.app = { 'controllers' : {}, 'models': {} }
+window.app.controllers.EntryController = new EntryController();
     

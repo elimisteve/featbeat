@@ -1,7 +1,8 @@
 class Button
     
   init: () =>
-    p = Ext.get('main-panel')
+    return
+    p = $('main-panel')
     
     button = p.createChild tag: 'div', cls: 'event-button'
     button.setHTML('did<br/>10<br/>pushups');
