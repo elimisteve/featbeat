@@ -1,19 +1,24 @@
-h1 Adam's Featbeat
+h1 
+  ' Adam's Featbeat
+
 - @entries.each do |e|
   .entry
-    .verb
+    
+    span.verb
       = e.verb
-    .count
+    
+    span.count
       = e.count
-    .unit
+    
+    span.unit
       = e.unit
+    
     - if e.noun.present?
-      .noun
-        of 
+      span.noun
+        ' of 
         = e.noun
-        
-      
-    .created_at
+          
+    .created-at
       = time_ago_in_words(e.created_at)
-      ago
+      '  ago
     

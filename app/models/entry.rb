@@ -1,5 +1,11 @@
 class Entry < ActiveRecord::Base
   
+  attr_accessible :count
+  attr_accessible :unit
+  attr_accessible :noun
+  attr_accessible :verb
+  attr_accessible :data
+  
   def Entry.parse_number(s)
 
     if s == 'one' 
