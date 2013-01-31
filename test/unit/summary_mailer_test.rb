@@ -4,7 +4,7 @@ require 'test_helper'
 class ImportMailerTest < ActionMailer::TestCase
 
   def setup 
-    @is_dumping = false
+    @is_dumping = true
   end
 
   test "daily reminder" do

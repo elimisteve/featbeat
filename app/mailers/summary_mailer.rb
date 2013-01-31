@@ -1,12 +1,15 @@
 require 'open-uri'
 
 class SummaryMailer < ActionMailer::Base
+  include ApplicationHelper
+
   layout 'mailer'
-  default from: "FeatBeat <featbat@adamloving.com>" # TODO config value
+  default from: ENV['DEFAULT_FROM_EMAIL']
 
   def daily_reminder
+    @base_url = base_url
     mail(
-      :to => 'adam@adamloving.com', # TODO config value
+      :to => ENV['USER_EMAIL'], 
       :subject => "How was your day?"
     )
   end
