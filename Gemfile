@@ -18,6 +18,6 @@ gem 'jquery-rails'
 gem 'slim'
 gem 'twitter-bootstrap-rails'
 
-group :develpment do
+group :development do
   gem 'sqlite3'
 end
