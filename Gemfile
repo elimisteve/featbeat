@@ -4,7 +4,6 @@ ruby '1.9.3'
 gem 'rails', '3.2.11'
 
 gem 'thin'
-gem 'sqlite3'
 gem 'pg'
 
 # Gems used only for assets and not required
@@ -18,3 +17,7 @@ end
 gem 'jquery-rails'
 gem 'slim'
 gem 'twitter-bootstrap-rails'
+
+group :develpment do
+  gem 'sqlite3'
+end
