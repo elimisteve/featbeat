@@ -23,11 +23,36 @@ This is a ruby on rails project.
 
 To run it, currently you need these environment variables set.
 
-export DEFAULT_FROM_EMAIL=x@x.com
-export USER_EMAIL=y@y.com
-export CUSTOM_URL=http://localhost:3001
+DEFAULT_FROM_EMAIL=x@x.com
+USER_EMAIL=y@y.com
+CUSTOM_URL=http://localhost:3001
 
 (use heroku config:add to add these to your heroku app)
 
+## Add-ons
 
+heroku addons:add cloudmailin:developer
+heroku addons:add sendgrid:starter
+
+
+## Auto-tracking your life
+
+There's a git hook to track when you commit code (update with your own URL)
+
+    curl -d "subject=1 commit featbeat-code committed" http://featbeat.adamloving.com/api/inbound_email
+
+I have IFFFT accepting SMS and forwarding them to cloudmalin via email which hits my API
+
+    heroku config 
+
+and look for your 
+     
+     CLOUDMAILIN_FORWARD_ADDRESS
+
+Also, IFFFT recipe for Foursquare.
+
+todo: share translations
+
+seems like these should be replaced with webhooks
+    
 
