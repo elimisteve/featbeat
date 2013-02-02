@@ -33,7 +33,7 @@ CUSTOM_URL=http://localhost:3001
 
 heroku addons:add cloudmailin:developer
 heroku addons:add sendgrid:starter
-
+heroku addons:add scheduler:standard
 
 ## Auto-tracking your life
 

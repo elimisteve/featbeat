@@ -4,3 +4,5 @@ log/*.log
 tmp/**/*
 public/.DS_Store
 .env
+
+console-prod.sh
