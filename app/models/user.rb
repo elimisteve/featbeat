@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :omniauthable
 
-  attr_accessible :entity
+  attr_accessible :entity, :app_id, :app_mac, :profile, :mac_key_id, :mac_key, :mac_algorithm, :profile_info_types, :post_types
 
   # plugin :serialization
   # serialize_attributes :pg_array, :profile_info_types, :post_types
@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
     app = auth_hash.extra.raw_info.app
     app_auth = auth_hash.extra.raw_info.app_authorization
     credentials = auth_hash.extra.credentials
+    
     attributes = {
       :entity => auth_hash.uid,
       :app_id => app.id,
@@ -37,9 +38,11 @@ class User < ActiveRecord::Base
     }
 
     if user
-      user.update(attributes)
+      puts "UPDATING", attributes.to_json
+      user.update_attributes(attributes)
       user
     else
+      puts "CREATING"
       create(attributes)
     end
   end
