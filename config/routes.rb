@@ -1,5 +1,8 @@
 Featbeat::Application.routes.draw do
 
+  devise_for :users, :controllers => { :omniauth_callbacks => "api/omniauth_callbacks" }
+  match '/users/auth/tent/callback' => 'api/auth#tent', :via => 'get'
+
   resources :entries
   
   match 'api/inbound_email', :to => 'api/inbound_email#create'

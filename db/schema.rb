@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110912030723) do
+ActiveRecord::Schema.define(:version => 20130202203518) do
 
   create_table "entries", :force => true do |t|
     t.integer  "count"
@@ -21,6 +21,20 @@ ActiveRecord::Schema.define(:version => 20110912030723) do
     t.string   "data",       :limit => 1024
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.text     "entity"
+    t.text     "app_id"
+    t.text     "app_mac",            :default => "{}"
+    t.text     "profile",            :default => "{}"
+    t.text     "mac_key_id"
+    t.text     "mac_key"
+    t.text     "mac_algorithm"
+    t.text     "profile_info_types", :default => "{}"
+    t.text     "post_types",         :default => "{}"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
 end
