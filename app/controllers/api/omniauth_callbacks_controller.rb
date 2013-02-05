@@ -13,4 +13,7 @@ class Api::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def failure
     Rails.logger.info request.env["omniauth.auth"].to_json
   end
+
+  def passthru
+  end
 end

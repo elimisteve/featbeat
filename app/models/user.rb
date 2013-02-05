@@ -28,8 +28,8 @@ class User < ActiveRecord::Base
         'mac_key_id' => app.mac_key_id,
         'mac_key' => app.mac_key,
         'mac_algorithm' => app.mac_algorithm
-      },
-      :profile => auth_hash.extra.raw_info.profile,
+      }.to_json,
+      :profile => auth_hash.extra.raw_info.profile.to_json,
       :mac_key_id => app_auth.access_token,
       :mac_key => app_auth.mac_key,
       :mac_algorithm => app_auth.mac_algorithm,
@@ -54,6 +54,7 @@ class User < ActiveRecord::Base
 
   def self.get_app_from_entity(entity)
     return unless user = User.where(:entity => entity).first
+    user.app_mac = JSON.parse(user.app_mac)
     Hashie::Mash.new(
       :id => user.app_id,
       :mac_key_id => user.app_mac['mac_key_id'],
@@ -75,10 +76,16 @@ class User < ActiveRecord::Base
   end
 
   def basic_profile
-    (profile || {})['https://tent.io/types/info/basic/v0.1.0'] || {}
+    (JSON.parse(profile) || {})['https://tent.io/types/info/basic/v0.1.0'] || {}
   end
 
   def core_profile
-    (profile || {})['https://tent.io/types/info/core/v0.1.0'] || {}
+    (JSON.parse(profile) || {})['https://tent.io/types/info/core/v0.1.0'] || {}
   end
+
+  def encrypted_password
+    # dummy to fake out :database_authenticatable.
+    # when I remove :database_authenticatable, some necessary routes (/users/sign_out) aren't generated.
+  end
+
 end
