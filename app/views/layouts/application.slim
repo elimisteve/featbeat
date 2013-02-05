@@ -8,8 +8,8 @@ html lang="en"
     = csrf_meta_tags
 
   body
-    / = render :partial => 'layouts/navbar'
-    .container-fluid
+    = render :partial => 'layouts/navbar'
+    .container
       .row
         .span10
           = yield

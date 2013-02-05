@@ -88,4 +88,8 @@ class User < ActiveRecord::Base
     # when I remove :database_authenticatable, some necessary routes (/users/sign_out) aren't generated.
   end
 
+  def is_admin?
+    # NYI
+  end
+
 end

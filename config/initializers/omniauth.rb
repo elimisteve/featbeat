@@ -1,4 +1,4 @@
-puts "OMNIAUTH"
+puts "OMNIAUTH #{ENV['CUSTOM_URL']}"
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :tent,
     :get_app => lambda { |entity| User.get_app_from_entity(entity) },
@@ -6,7 +6,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     :app => {
       :name => 'Featbeat',
       :icon => '',
-      :url => 'http://localhost:5001',
+      :url => ENV['CUSTOM_URL'],
       :description => 'Quantified self app',
       :scopes => {
         "read_posts" => "See status posts",
