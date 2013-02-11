@@ -1,10 +1,13 @@
 class Entry < ActiveRecord::Base
-  
+
+  attr_accessible :user
   attr_accessible :count
   attr_accessible :unit
   attr_accessible :noun
   attr_accessible :verb
   attr_accessible :data
+
+  belongs_to :user
   
   def Entry.parse_number(s)
 
@@ -34,7 +37,7 @@ class Entry < ActiveRecord::Base
 
   end
 
-  def Entry.create_from_sentence(s)
+  def Entry.create_from_sentence(user, s)
     a = s.split(' ')
     
     # I took 1 bus
@@ -49,6 +52,7 @@ class Entry < ActiveRecord::Base
       end
 
       return Entry.create(
+        :user   => user,
         :count  => Entry.parse_number(a[2]),
         :unit   => a[3],
         :noun   => noun,
@@ -57,6 +61,7 @@ class Entry < ActiveRecord::Base
 
     elsif a.last == 'visited' # "1 venue something something something visited"
       return Entry.create(
+        :user   => user,
         :count  => a[0],
         :unit   => a[1],
         :noun   => a[2..a.size-2].join(' '),
@@ -64,6 +69,7 @@ class Entry < ActiveRecord::Base
       )      
     elsif a.size == 4 # "1 unit noun verbed"
       return Entry.create(
+        :user   => user,
         :count  => a[0],
         :unit   => a[1],
         :noun   => a[2],

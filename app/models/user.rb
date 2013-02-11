@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :entity, :app_id, :app_mac, :profile, :mac_key_id, :mac_key, :mac_algorithm, :profile_info_types, :post_types
 
+  has_many :entries
+
   # plugin :serialization
   # serialize_attributes :pg_array, :profile_info_types, :post_types
   # serialize_attributes :json, :app_mac, :profile
@@ -89,7 +91,7 @@ class User < ActiveRecord::Base
   end
 
   def is_admin?
-    # NYI
+    self.is_admin == 1
   end
 
 end

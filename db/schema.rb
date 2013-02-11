@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202203518) do
+ActiveRecord::Schema.define(:version => 20130211040102) do
 
   create_table "entries", :force => true do |t|
     t.integer  "count"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130202203518) do
     t.string   "data",       :limit => 1024
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -35,6 +36,8 @@ ActiveRecord::Schema.define(:version => 20130202203518) do
     t.text     "post_types",         :default => "{}"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
+    t.string   "email"
+    t.integer  "is_admin"
   end
 
 end
