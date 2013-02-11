@@ -1,8 +1,9 @@
 app = User.get_app_from_entity('https://adamloving.tent.is')
 
-post = { "permissions" => {"public"=>false, "entities"=>{}}, "type"=>"https://tent.io/types/post/status/v0.1.0", "content"=>{"text"=>"test via tent-client"}}
+post = { "permissions" => {"public"=>true, "entities"=>{}}, "type"=>"https://tent.io/types/post/status/v0.1.0", "content"=>{"text"=>"test via tent-client"}}
 
 client = TentClient.new('https://adamloving.tent.is', :mac_key_id => app[:mac_key_id], :mac_key => app[:mac_key], :mac_algorithm => app[:mac_algorithm])
+client = TentClient.new('https://adamloving.tent.is', user.mac_key_id, user.mac_key, user.mac_algorithm)
 
 client.post.create(post) # => 404
 client.post.create(post, :url => 'http://adamloving.tent.is/tent/posts') # 301 moved
