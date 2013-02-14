@@ -29,3 +29,6 @@ client.post.list # => HTML page (https://adamloving.tent.is/posts)
 
 x = TentClient.new.discover("http://adamloving.tent.is")
 client = x.instance_variable_get('@client')
+
+client = TentClient.new('https://adamloving.tent.is/tent', :mac_key_id => user.mac_key_id, :mac_key => user.mac_key, :mac_algorithm => user.mac_algorithm)
+client.profile.get

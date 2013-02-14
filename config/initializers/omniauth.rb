@@ -3,7 +3,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     :get_app => lambda { |entity| User.get_app_from_entity(entity) },
     :on_app_created => lambda { |app, entity| User.app_created_for_entity(app, entity) },
     :app => {
-      :name => 'Featbeat',
+      :name => 'Featbeat', # todo: append Rails.env?
       :icon => '',
       :url => ENV['CUSTOM_URL'],
       :description => 'Quantified self app',

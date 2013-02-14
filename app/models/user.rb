@@ -16,13 +16,12 @@ class User < ActiveRecord::Base
   # serialize_attributes :json, :app_mac, :profile
 
   def self.find_or_create_from_auth_hash(auth_hash)
-    puts "FOCFAH", auth_hash
     user = User.where(:entity => auth_hash.uid).first
 
     app = auth_hash.extra.raw_info.app
     app_auth = auth_hash.extra.raw_info.app_authorization
     credentials = auth_hash.extra.credentials
-    
+
     attributes = {
       :entity => auth_hash.uid,
       :app_id => app.id,
@@ -92,6 +91,11 @@ class User < ActiveRecord::Base
 
   def is_admin?
     self.is_admin == 1
+  end
+
+  def first_name
+    name = self.basic_profile['name']
+    name.split(' ').first if name
   end
 
 end
