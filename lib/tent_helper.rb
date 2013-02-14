@@ -13,6 +13,9 @@ class TentHelper
     }
     
     discovery = TentClient.new.discover(User.last.entity)
+
+    # BUGBUG: use user.core_profile["servers"] (or discovery.get_profile)
+
     url = discovery.profile_urls.first.gsub(/profile/, 'posts')
     client = TentClient.new(user.entity, :mac_key_id => user.mac_key_id, :mac_key => user.mac_key, :mac_algorithm => user.mac_algorithm)
     client.post.create(post, :url => url)
