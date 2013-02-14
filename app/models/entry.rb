@@ -80,4 +80,9 @@ class Entry < ActiveRecord::Base
       return nil
     end
   end
+
+  def to_sentence
+    [ 'I', self.verb, self.count, self.unit, 
+      self.noun.present?? "of #{self.noun}" : nil].compact.join(' ') + '.'
+  end
 end

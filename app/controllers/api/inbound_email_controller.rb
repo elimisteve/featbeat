@@ -1,3 +1,5 @@
+require 'tent_helper'
+
 class Api::InboundEmailController < ActionController::Base
   
   # the from address is matched to the user
@@ -11,6 +13,8 @@ class Api::InboundEmailController < ActionController::Base
     if user
       Rails.logger.info "Have user #{user.id}"
       e = Entry.create_from_sentence(user, params[:subject])
+      TentHelper.post(user, e.to_sentence)
+
       if e
         result = { :status => 'success', :entry_id => e.id }
       end

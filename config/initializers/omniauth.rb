@@ -1,4 +1,3 @@
-puts "OMNIAUTH #{ENV['CUSTOM_URL']}"
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :tent,
     :get_app => lambda { |entity| User.get_app_from_entity(entity) },
