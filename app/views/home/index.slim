@@ -1,11 +1,22 @@
-h1 
-  ' Adam's Featbeat
+.row
+  .span7    
+    h1 
+      ' Adam's Featbeat
 
-- @entries.each do |e|
-  .entry
-    = e.to_sentence(e.user.first_name)
-          
-    .created-at
-      = time_ago_in_words(e.created_at)
-      '  ago
+    - @entries.each do |e|
+      .entry
+        = e.to_sentence(e.user.first_name)
+              
+        .created-at
+          = time_ago_in_words(e.created_at)
+          '  ago
+  
+  .span5
+    br
+    .row
+      = render :partial => 'rollups', :locals => {:rollups => @rollups}
     
+    .row 
+      = render 'faq'
+
+      

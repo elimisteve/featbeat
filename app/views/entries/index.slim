@@ -1,12 +1,14 @@
-h1 Add Entry
+.row
+  .span12    
+    h1 Add Entry
 
-.fixed-height style="height: 40px"
-  img.loading src="/assets/loading.gif" style="display: none"
-  .alert.alert-success style="display:none"
-  .alert.alert-error style="display:none"
+    .fixed-height style="height: 40px"
+      img.loading src="/assets/loading.gif" style="display: none"
+      .alert.alert-success style="display:none"
+      .alert.alert-error style="display:none"
 
-= render :partial => 'quick_buttons'
+    = render :partial => 'quick_buttons'
 
-hr
+    hr
 
-= render :partial => 'form'
+    = render :partial => 'form'
