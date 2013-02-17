@@ -1,3 +1,5 @@
+require 'tent_helper'
+
 class EntriesController < ApplicationController
   before_filter :require_authentication
 
@@ -5,12 +7,15 @@ class EntriesController < ApplicationController
   end
   
   def create
-    Entry.create(
-      :count => params[:count],
-      :unit => params[:unit],
-      :noun => params[:noun],
-      :verb => params[:verb]
+    e = Entry.create(
+      :user   => current_user,
+      :count  => params[:count],
+      :unit   => params[:unit],
+      :noun   => params[:noun],
+      :verb   => params[:verb]
     )
+
+    TentHelper.post(current_user, e.to_sentence)
     
     render :json => { :status => 'success' }
   end

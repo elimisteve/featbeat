@@ -1,24 +1,22 @@
-h1 
-  ' Adam's Featbeat
+.row
+  .span7    
+    h1 
+      ' Adam's Featbeat
 
-- @entries.each do |e|
-  .entry
+    - @entries.each do |e|
+      .entry
+        = e.to_sentence(e.user.first_name)
+              
+        .created-at
+          = time_ago_in_words(e.created_at)
+          '  ago
+  
+  .span5
+    br
+    .row
+      = render :partial => 'rollups', :locals => {:rollups => @rollups}
     
-    span.verb
-      = e.verb
-    
-    span.count
-      = e.count
-    
-    span.unit
-      = e.unit
-    
-    - if e.noun.present?
-      span.noun
-        ' of 
-        = e.noun
-          
-    .created-at
-      = time_ago_in_words(e.created_at)
-      '  ago
-    
+    .row 
+      = render 'faq'
+
+      

@@ -10,10 +10,4 @@ html lang="en"
   body
     = render :partial => 'layouts/navbar'
     .container
-      .row
-        .span10
-          = yield
-
-        .span2
-          = render :partial => 'layouts/sidebar', :locals => {:rollups => @rollups}
-        
+      = yield
