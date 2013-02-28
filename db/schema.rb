@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211040102) do
+ActiveRecord::Schema.define(:version => 20130214051836) do
 
   create_table "entries", :force => true do |t|
     t.integer  "count"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(:version => 20130211040102) do
     t.datetime "updated_at",                           :null => false
     t.string   "email"
     t.integer  "is_admin"
+    t.string   "name"
+    t.string   "photo_url"
   end
 
 end

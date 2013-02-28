@@ -8,12 +8,15 @@ Featbeat is a very simple Quantified self experiment. It was created by [Adam Lo
 
 Provides a very basic API for logging life events. Entries consist of
 
+verb
 count
 unit
 noun
-verb
 
-For example: 1 slice pie ate
+The actor is considered to be the current user. Examples: 
+I ate 1 slice of pie
+I did 10 reps of pushups
+I ran 1 mile of road
 
 Todos are stored in this [Trello board](https://trello.com/board/featbeat/5105f8abb18f945b56004033)
 

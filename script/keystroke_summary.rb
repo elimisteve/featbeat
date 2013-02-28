@@ -46,7 +46,7 @@ if lines_to_read > 0
   puts "total keystrokes: #{clean.length}"
 
   if total_keystrokes > 0 
-    `curl -d "from=adamloving@gmail.com&subject=#{total_keystrokes} keystrokes keystrokes typed" http://featbeat.adamloving.com/api/inbound_email`
+    `curl -d "from=adamloving@gmail.com&subject=I performed #{total_keystrokes} keystrokes of typing" http://featbeat.adamloving.com/api/inbound_email`
   end
 else
   puts "up to date"

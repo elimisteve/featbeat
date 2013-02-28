@@ -43,11 +43,13 @@ class Entry < ActiveRecord::Base
     # I took 1 bus
     # I ran 5 kilometers
     # I ate 1 bannana
+    # I typed X keystrokes
     if a.first.upcase == 'I' 
       
       if a.size > 5 and a[4] == 'of' # I ate 7 grams of protein
         noun = a[5]
       else
+        # I ran 1 mile
         noun = a[3]
       end
 
